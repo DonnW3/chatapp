@@ -16,7 +16,7 @@ import rootReducer from './reducers'
 import { setUser, clearUser } from './actions'
 import Spinner from './Spinner'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class Root extends React.Component {
   componentDidMount() {
