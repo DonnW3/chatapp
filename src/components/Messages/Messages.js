@@ -17,7 +17,8 @@ class Messages extends React.Component {
     numUniqueUsers: "",
     searchTerm: '',
     searchLoading: false,
-    searchResults: []
+    searchResults: [],
+    isChannelStarred: false
   }
 
   componentDidMount() {
@@ -49,6 +50,22 @@ class Messages extends React.Component {
     const { messagesRef, privateMessagesRef, privateChannel } = this.state
     return privateChannel ? privateMessagesRef : messagesRef
   }
+  
+  starChannel = () => {
+    if (this.state.isChannelStarred) {
+      console.log('star')
+    } else {
+      console.log('no star')
+    }
+  }
+
+
+  handleStar = () => {
+    this.setState(prevState => ({
+      isChannelStarred: !prevState.isChannelStarred
+    }), () => this.starChannel())
+  }
+
 
   handleSearchMessages = () => {
     const channelMessages = [...this.state.messages]
@@ -96,7 +113,17 @@ class Messages extends React.Component {
   }
 
   render() {
-    const { messagesRef, messages, channel, user, numUniqueUsers, searchTerm, searchResults, privateChannel } = this.state
+    const { 
+      messagesRef, 
+      messages, 
+      channel, 
+      user, 
+      numUniqueUsers, 
+      searchTerm, 
+      searchResults, 
+      privateChannel,
+      isChannelStarred 
+    } = this.state
 
     return (
       <React.Fragment>
@@ -106,6 +133,8 @@ class Messages extends React.Component {
           channelName={this.displayChannelName(channel)}
           // searchLoading={searchLoading}
           isPrivateChannel={privateChannel}
+          handleStar={this.handleStar}
+          isChannelStarred={isChannelStarred}
         />
 
         <Segment>
