@@ -19,6 +19,17 @@ class MessageForm extends React.Component {
     modal: false
   }
 
+<<<<<<< HEAD
+=======
+  openModal = () => this.setState({ modal: true })
+
+  closeModal = () => this.setState({ modal: false })
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value})
+  }
+
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
   createMessage = (fileUrl = null) => {
     const message = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -35,14 +46,24 @@ class MessageForm extends React.Component {
     }
     return message
   }
+<<<<<<< HEAD
   
   sendMessage = () => {
     const { getMessagesRef } = this.props
+=======
+
+  sendMessage = () => {
+    const { messagesRef } = this.props
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
     const { message, channel } = this.state
 
     if (message) {
       this.setState({ loading: true });
+<<<<<<< HEAD
       getMessagesRef()
+=======
+      messagesRef
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         .child(channel.id)
         .push()
         .set(this.createMessage())
@@ -62,6 +83,7 @@ class MessageForm extends React.Component {
       })
     }
   }
+<<<<<<< HEAD
   
   openModal = () => this.setState({ modal: true })
 
@@ -86,6 +108,13 @@ class MessageForm extends React.Component {
     const pathToUpload = this.state.channel.id
     const ref = this.props.getMessagesRef()
     const filePath = `${this.getPath()}/${uuidv4()}.jpg`
+=======
+
+  uploadFile = (file, metadata) => {
+    const pathToUpload = this.state.channel.id
+    const ref = this.props.messagesRef
+    const filePath = `chat/public/${uuidv4()}.jpg`
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 
     this.setState({
       uploadState: 'uploading',
@@ -166,7 +195,10 @@ class MessageForm extends React.Component {
           />
           <Button
             color="teal"
+<<<<<<< HEAD
             disabled={uploadState === "uploading"}
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
             onClick={this.openModal}
             content="Upload Media"
             labelPosition="right"

@@ -40,8 +40,13 @@ handleSignout = () => {
         <Grid.Column>
           <Grid.Row style={{ padding: '1.2em', margin: 0}}>
             <Header inverted floated="left" as="h2">
+<<<<<<< HEAD
               <Icon name="talk"/>
               <Header.Content>Capp</Header.Content>
+=======
+              <Icon name="code"/>
+              <Header.Content>ChatApp</Header.Content>
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
             </Header>
           </Grid.Row>
           {/* user dropdown */}
