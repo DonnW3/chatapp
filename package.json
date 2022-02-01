@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "dotenv": ">=12",
     "emoji-mart": "^2.6.1",
     "firebase": "^5.11.1",
@@ -11,6 +12,14 @@
     "mime-types": "^2.1.20",
     "moment": "^2.22.2",
     "n": "^8.0.2",
+=======
+    "lodash": "^4.17.21",
+    "emoji-mart": "^2.6.1",
+    "firebase": "^5.3.0",
+    "md5": "^2.2.1",
+    "mime-types": "^2.1.20",
+    "moment": "^2.22.2",
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
     "react": "^16.4.1",
     "react-avatar-editor": "^11.0.4",
     "react-color": "^2.14.1",
@@ -22,8 +31,12 @@
     "redux-devtools-extension": "^2.13.5",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.1",
+<<<<<<< HEAD
     "uuid": "^3.3.2",
     "yarn": "^1.22.17"
+=======
+    "uuid": "^3.3.2"
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
   },
   "scripts": {
     "start": "react-scripts start",

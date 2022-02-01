@@ -3152,8 +3152,13 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
 follow-redirects@^1.0.0:
+<<<<<<< HEAD
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
+=======
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -4687,7 +4692,11 @@ lodash.uniq@^4.5.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
+<<<<<<< HEAD
 lodash@^4.0.1, lodash@^4.17.15, lodash@^4.17.19:
+=======
+lodash@^4.0.1, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21:
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
 
@@ -7189,8 +7198,13 @@ tmp@^0.0.33:
     os-tmpdir "~1.0.2"
 
 tmpl@1.0.x:
+<<<<<<< HEAD
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
+=======
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"

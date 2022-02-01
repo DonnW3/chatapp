@@ -7,8 +7,11 @@ import firebase from '../../firebase'
 
 class Messages extends React.Component {
   state = {
+<<<<<<< HEAD
     privateChannel: this.props.isPrivateChannel,
     privateMessagesRef: firebase.database().ref('privateMessages'),
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
     messagesRef: firebase.database().ref('messages'),
     messages: [],
     messagesLoading: true,
@@ -34,8 +37,12 @@ class Messages extends React.Component {
 
   addMessageListener = channelId => {
     let loadedMessages = []
+<<<<<<< HEAD
     const ref = this.getMessagesRef()
     ref.child(channelId).on('child_added', snap => {
+=======
+    this.state.messagesRef.child(channelId).on('child_added', snap => {
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
       loadedMessages.push(snap.val())
       this.setState({
         messages: loadedMessages,
@@ -45,11 +52,14 @@ class Messages extends React.Component {
     })
   }
 
+<<<<<<< HEAD
   getMessagesRef = () => {
     const { messagesRef, privateMessagesRef, privateChannel } = this.state
     return privateChannel ? privateMessagesRef : messagesRef
   }
 
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
   handleSearchMessages = () => {
     const channelMessages = [...this.state.messages]
     const regex = new RegExp(this.state.searchTerm, 'gi')
@@ -91,12 +101,19 @@ class Messages extends React.Component {
     ))
   )
 
+<<<<<<< HEAD
   displayChannelName = channel => {
     return channel ? `${this.state.privateChannel ? '@' : '#'}${channel.name}` : '' 
   }
 
   render() {
     const { messagesRef, messages, channel, user, numUniqueUsers, searchTerm, searchResults, privateChannel } = this.state
+=======
+  displayChannelName = channel => channel ? `#${channel.name}` : '';
+
+  render() {
+    const { messagesRef, messages, channel, user, numUniqueUsers, searchTerm, searchResults } = this.state
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 
     return (
       <React.Fragment>
@@ -104,8 +121,11 @@ class Messages extends React.Component {
           numUniqueUsers={numUniqueUsers}
           handleSearchChange={this.handleSearchChange}
           channelName={this.displayChannelName(channel)}
+<<<<<<< HEAD
           // searchLoading={searchLoading}
           isPrivateChannel={privateChannel}
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         />
 
         <Segment>
@@ -116,11 +136,17 @@ class Messages extends React.Component {
         </Segment>
 
         <MessageForm
+<<<<<<< HEAD
           getMessagesRef={this.getMessagesRef}
           messagesRef={messagesRef}
           currentChannel={channel}
           currentUser={user}
           isPrivateChannel={privateChannel}
+=======
+          messagesRef={messagesRef}
+          currentChannel={channel}
+          currentUser={user}
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         />
       </React.Fragment>
     )
