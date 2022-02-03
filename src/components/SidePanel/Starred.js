@@ -74,7 +74,7 @@ class Starred extends React.Component {
             <Menu.Menu className="menu">
                 <Menu.Item>
                     <span>
-                        <Icon name="Star" /> Starred
+                        <Icon name="star" /> Starred
                     </span>{ " "}
                     ({starredChannels.length})
                 </Menu.Item>
