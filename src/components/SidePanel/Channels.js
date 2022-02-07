@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { setCurrentChannel, setPrivateChannel } from '../../actions'
 import { Menu, Icon, Modal, Form, Input, Button, Label } from 'semantic-ui-react'
 
+
 class Channels extends React.Component {
   state = {
     activeChannel: '',
@@ -144,6 +145,7 @@ class Channels extends React.Component {
       updatedNotifications[index].count = 0
       this.setState({ notifications: updatedNotifications })
     }
+    this.props.setCurrentChannel(channel)
   }
 
   setActiveChannel = channel => {
@@ -242,7 +244,9 @@ class Channels extends React.Component {
   }
 }
 
+
 export default connect(
   null, 
   { setCurrentChannel, setPrivateChannel }
   )(Channels)
+export default connect(null, { setCurrentChannel })(Channels)

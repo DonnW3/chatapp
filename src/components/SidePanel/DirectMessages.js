@@ -1,18 +1,28 @@
 import React from 'react'
 import firebase from '../../firebase'
+<<<<<<< HEAD
 import { connect } from 'react-redux'
 import { setCurrentChannel, setPrivateChannel } from '../../actions'
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 import { Menu, Icon } from 'semantic-ui-react'
 import { NimbleEmoji } from 'emoji-mart'
 
 class DirectMessages extends React.Component {
     state = {
+<<<<<<< HEAD
         activeChannel: '',
+=======
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         users: [],
         user: this.props.currentUser,
         usersRef: firebase.database().ref('users'),
         connectedRef: firebase.database().ref('.info/connected'),
+<<<<<<< HEAD
         presenceRef: firebase.database().ref('presence')
+=======
+        presenceRef: firebase.database().ref('presence'),
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
     }
 
     componentDidMount() {
@@ -67,6 +77,7 @@ class DirectMessages extends React.Component {
         this.setState({ users: updatedUsers})
     }
 
+<<<<<<< HEAD
     isUserOnline = user => user.status === "online";
 
     
@@ -93,6 +104,13 @@ class DirectMessages extends React.Component {
     
     render() {
         const { users, activeChannel } = this.state;
+=======
+    isUserOnline = user => user.status === 'online'
+    
+    
+    render() {
+        const { users } = this.state;
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         return (
             <Menu.Menu className="menu">
                 <Menu.Item>
@@ -104,13 +122,21 @@ class DirectMessages extends React.Component {
                 {users.map(user => (
                     <Menu.Item
                     key={user.uid}
+<<<<<<< HEAD
                     active={user.uid === activeChannel}
                     onClick={() => this.changeChannel(user)}
+=======
+                    onClick={() => console.log(user)}
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
                     style={{ opacity: 0.5, fontStyle: 'italic'}}
                     >
                         <Icon
                             name="circle"
+<<<<<<< HEAD
                             color={this.isUserOnline(user) ? 'green' : 'grey'}
+=======
+                            color={this.isUserOnline(user) ? 'green' : 'purple'}
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
                         />
                         @ {user.name}
                     </Menu.Item>
@@ -120,5 +146,9 @@ class DirectMessages extends React.Component {
     }
 }
 
+<<<<<<< HEAD
 export default connect(null, { setCurrentChannel, setPrivateChannel })
 ( DirectMessages);
+=======
+export default DirectMessages;
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9

@@ -20,6 +20,15 @@ class MessageForm extends React.Component {
     modal: false
   }
 
+
+  openModal = () => this.setState({ modal: true })
+
+  closeModal = () => this.setState({ modal: false })
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value})
+  }
+
   createMessage = (fileUrl = null) => {
     const message = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -36,6 +45,7 @@ class MessageForm extends React.Component {
     }
     return message
   }
+
   
   sendMessage = () => {
     const { getMessagesRef } = this.props
@@ -67,7 +77,7 @@ class MessageForm extends React.Component {
       })
     }
   }
-  
+
   openModal = () => this.setState({ modal: true })
 
   closeModal = () => this.setState({ modal: false })

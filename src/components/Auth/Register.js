@@ -62,13 +62,21 @@ class Register extends React.Component {
 
 
   handleSubmit(event) {
+<<<<<<< HEAD
     event.preventDefault();
+=======
+    event.preventDefault()
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
     if (this.isFormValid()) {
       this.setState({ errors: [], loading: true })
     firebase
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(createdUser => {
+<<<<<<< HEAD
+=======
+        console.log(createdUser)
+>>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         createdUser.user.updateProfile({
           displayName: this.state.username,
           photoURL: `http://gravatar.com/avatar/${md5(createdUser.user.email)}d=identicon`
