@@ -7,6 +7,7 @@ import ProgressBar from './ProgressBar'
 
 class MessageForm extends React.Component {
   state = {
+    typingRef: firebase.database().ref('typing'),
     percentUploaded: 0,
     storageRef: firebase.storage().ref(),
     uploadState: '',
@@ -19,8 +20,7 @@ class MessageForm extends React.Component {
     modal: false
   }
 
-<<<<<<< HEAD
-=======
+
   openModal = () => this.setState({ modal: true })
 
   closeModal = () => this.setState({ modal: false })
@@ -29,7 +29,6 @@ class MessageForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value})
   }
 
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
   createMessage = (fileUrl = null) => {
     const message = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -46,29 +45,24 @@ class MessageForm extends React.Component {
     }
     return message
   }
-<<<<<<< HEAD
+
   
   sendMessage = () => {
     const { getMessagesRef } = this.props
-=======
-
-  sendMessage = () => {
-    const { messagesRef } = this.props
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
-    const { message, channel } = this.state
+    const { message, channel, typingRef, user } = this.state
 
     if (message) {
       this.setState({ loading: true });
-<<<<<<< HEAD
       getMessagesRef()
-=======
-      messagesRef
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         .child(channel.id)
         .push()
         .set(this.createMessage())
         .then(() => {
           this.setState({ loading: false, message: '', errors: [] })
+          typingRef
+            .child(channel.id)
+            .child(user.uid)
+            .remove()
         })
         .catch(err => {
           console.error(err)
@@ -83,8 +77,7 @@ class MessageForm extends React.Component {
       })
     }
   }
-<<<<<<< HEAD
-  
+
   openModal = () => this.setState({ modal: true })
 
   closeModal = () => this.setState({ modal: false })
@@ -94,6 +87,21 @@ class MessageForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value})
   }
 
+  handleKeyDown = () => {
+    const { message, typingRef, channel, user } = this.state 
+
+    if (message) {
+      typingRef
+        .child(channel.id)
+        .child(user.uid)
+        .set(user.displayName)
+    } else {
+      typingRef
+        .child(channel.id)
+        .child(user.uid)
+        .remove()
+    }
+  }
 
 
   getPath = () => {
@@ -108,13 +116,6 @@ class MessageForm extends React.Component {
     const pathToUpload = this.state.channel.id
     const ref = this.props.getMessagesRef()
     const filePath = `${this.getPath()}/${uuidv4()}.jpg`
-=======
-
-  uploadFile = (file, metadata) => {
-    const pathToUpload = this.state.channel.id
-    const ref = this.props.messagesRef
-    const filePath = `chat/public/${uuidv4()}.jpg`
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 
     this.setState({
       uploadState: 'uploading',
@@ -179,6 +180,7 @@ class MessageForm extends React.Component {
           labelPosition="left"
           value={message}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           placeholder="Write your message"
           className={
             errors.some(error => error.message.includes('message')) ? 'error' : ''
@@ -195,10 +197,7 @@ class MessageForm extends React.Component {
           />
           <Button
             color="teal"
-<<<<<<< HEAD
             disabled={uploadState === "uploading"}
-=======
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
             onClick={this.openModal}
             content="Upload Media"
             labelPosition="right"
