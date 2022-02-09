@@ -120,6 +120,8 @@ class UserPanel extends React.Component {
             <Header inverted floated="left" as="h2">
               <Icon name="talk"/>
               <Header.Content>Chapp</Header.Content>
+              <Icon name="code"/>
+              <Header.Content>ChatApp</Header.Content>
             </Header>
           </Grid.Row>
           {/* user dropdown */}
