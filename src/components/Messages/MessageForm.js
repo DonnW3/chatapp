@@ -23,6 +23,13 @@ class MessageForm extends React.Component {
     emojiPicker: false
   }
 
+  componentWillUnmount() {
+    if (this.state.uploadTask !== null) {
+      this.state.uploadTask.cancel()
+      this.setState({ uploadTask: null })
+    }
+  }
+
   createMessage = (fileUrl = null) => {
     const message = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -129,7 +136,7 @@ class MessageForm extends React.Component {
 
   getPath = () => {
     if(this.props.isPrivateChannel) {
-      return `chat/private-${this.state.channel.id}`
+      return `chat/private/${this.state.channel.id}`
     } else {
       return 'chat/public'
     }
