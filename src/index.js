@@ -11,23 +11,19 @@ import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router
 
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
-<<<<<<< HEAD
 // import { composeWithDevTools } from 'redux-devtools-extension'
-=======
 import { composeWithDevTools } from 'redux-devtools-extension'
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
 import rootReducer from './reducers'
 import { setUser, clearUser } from './actions'
 import Spinner from './Spinner'
 
-<<<<<<< HEAD
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class Root extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-=======
+
 const store = createStore(rootReducer, composeWithDevTools())
 
 class Root extends React.Component {
@@ -36,7 +32,6 @@ class Root extends React.Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log(user)
->>>>>>> 8928e5605a37df077aa5702aa4e32523f9f4e4a9
         this.props.setUser(user)
         this.props.history.push('/')
       } else {
